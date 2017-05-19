@@ -15,3 +15,5 @@ Currently only the BotBuilder NodeJS SDK is supported. Pull requests for C# supp
 
 ## License
 MIT
+
+../node_modules/.bin/tsc --moduleResolution node --d

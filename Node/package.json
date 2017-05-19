@@ -1,5 +1,5 @@
 {
-  "name": "botbuilder-facebookextension",
+  "name": "botbuilder-facebookextension-remix",
   "version": "1.2.2",
   "description": "Collection of useful Facebook add-ons for the Bot Builder SDK.",
   "main": "./lib/botbuilder-facebook.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/iMicknl/BotBuilder-FacebookExtension.git"
+    "url": "https://github.com/RespawnDespair/BotBuilder-FacebookExtension.git"
   },
   "keywords": [
     "botbuilder",
@@ -19,19 +19,19 @@
     "chatbots",
     "bots"
   ],
-  "author": "Mick Vleeshouwer",
+  "author": "Jelle Tigchelaar",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/iMicknl/BotBuilder-FacebookExtension/issues"
+    "url": "https://github.com/RespawnDespair/BotBuilder-FacebookExtension/issues"
   },
-  "homepage": "https://github.com/iMicknl/BotBuilder-FacebookExtension/tree/master/Node#readme",
+  "homepage": "https://github.com/RespawnDespair/BotBuilder-FacebookExtension/tree/master/Node#readme",
   "dependencies": {
-    "botbuilder": "^3.7.0",
-    "request": "^2.81.0",
-    "request-promise": "^4.2.0"
+    "botbuilder": "3.8.3",
+    "request": "2.81.0",
+    "request-promise": "4.2.0"
   },
   "devDependencies": {
-    "@types/node": "^7.0.12",
-    "typescript": "^2.2.2"
+    "@types/node": "7.0.18",
+    "typescript": "2.3.2"
   }
 }

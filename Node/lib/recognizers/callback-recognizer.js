@@ -1,8 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var CallbackRecognizer = (function () {
-    function CallbackRecognizer(recognizer, options) {
-        if (options === void 0) { options = {}; }
+class CallbackRecognizer {
+    constructor(recognizer, options = {}) {
         this.recognizer = recognizer;
         options.referral = (options.referral !== undefined ? options.referral : true);
         options.postback = (options.postback !== undefined ? options.postback : true);
@@ -12,15 +11,15 @@ var CallbackRecognizer = (function () {
         options.optinValue = (options.optinValue !== undefined ? options.optinValue : true);
         this.options = options;
     }
-    CallbackRecognizer.prototype.recognize = function (context, done) {
-        var result = { score: 0.0, intent: null };
+    recognize(context, done) {
+        let result = { score: 0.0, intent: null };
         if (context.message.source !== 'facebook') {
             done(null, result);
             return;
         }
         if (context.message.sourceEvent.referral !== undefined && this.options.referral) {
-            var referral = context.message.sourceEvent.referral;
-            var entity = {
+            const referral = context.message.sourceEvent.referral;
+            const entity = {
                 entity: referral.ref,
                 type: 'referral',
                 score: 1.0,
@@ -38,8 +37,8 @@ var CallbackRecognizer = (function () {
             return;
         }
         if (context.message.sourceEvent.postback !== undefined && this.options.postback) {
-            var postback = context.message.sourceEvent.postback;
-            var entity = {
+            const postback = context.message.sourceEvent.postback;
+            const entity = {
                 entity: postback.payload,
                 type: 'postback',
                 score: 1.0,
@@ -57,8 +56,8 @@ var CallbackRecognizer = (function () {
             return;
         }
         if (context.message.sourceEvent.optin !== undefined && this.options.optin) {
-            var optin = context.message.sourceEvent.optin;
-            var entity = {
+            const optin = context.message.sourceEvent.optin;
+            const entity = {
                 entity: optin.ref,
                 type: 'optin',
                 score: 1.0,
@@ -76,7 +75,6 @@ var CallbackRecognizer = (function () {
             return;
         }
         done(null, result);
-    };
-    return CallbackRecognizer;
-}());
+    }
+}
 exports.CallbackRecognizer = CallbackRecognizer;

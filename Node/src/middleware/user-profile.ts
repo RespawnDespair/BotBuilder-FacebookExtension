@@ -48,6 +48,7 @@ export const RetrieveUserProfile = (options: IFacebookUserProfileOptions): IMidd
 
             request(userProfileRequest)
                 .then((user: any) => {
+                    session.userData.facebook = {};
                     // Save profile to userData
                     for (let field of fields) {
                         // Check if field exists
@@ -55,16 +56,18 @@ export const RetrieveUserProfile = (options: IFacebookUserProfileOptions): IMidd
                             continue;
                         }
 
-                        session.userData[field] = user[field];
+                        session.userData.facebook[field] = user[field];
                     }
 
                     // Add current time
                     session.userData.facebook_last_updated = currentTime;
+                    next();
                 })
 
                 .catch((response) => {
+                    session.userData.facebook = {};
                     for (let field of fields) {
-                        session.userData[field] = '';
+                        session.userData.facebook[field] = '';
                     }
 
                     if (response.error !== undefined) {
@@ -72,9 +75,8 @@ export const RetrieveUserProfile = (options: IFacebookUserProfileOptions): IMidd
                     } else {
                         console.log(response);
                     }
+                    next();
                 });
-
-            next();
         }
     }
 }
