@@ -27,7 +27,7 @@
   "homepage": "https://github.com/RespawnDespair/BotBuilder-FacebookExtension/tree/master/Node#readme",
   "dependencies": {
     "botbuilder": "3.8.3",
-    "request": "2.81.0",
+    "request": "2.88.2",
     "request-promise": "4.2.0"
   },
   "devDependencies": {
